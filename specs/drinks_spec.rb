@@ -12,12 +12,15 @@ require_relative ('../drinks.rb')
 class TestDrinks < MiniTest::Test
 
   def setup
-    @drink_1 = Drinks.new("G&T")
-    @drink_2 = Drinks.new("Whisky")
+    @drink_1 = Drinks.new("G&T",2)
+    @drink_2 = Drinks.new("Whisky",3)
   end
 
   def test_get_drink_name
     assert_equal("G&T",@drink_1.name_string)
   end
-
+  def test_get_drink_price
+    assert_equal(3, @drink_2.price_int)
+  end
+  
 end

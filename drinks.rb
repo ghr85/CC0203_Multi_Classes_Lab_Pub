@@ -5,9 +5,10 @@
 # Drinks Class
 
 class Drinks
-  attr_reader :name_string
+  attr_reader :name_string, :price_int
 
-  def initialize(name_string,price)
+  def initialize(name_string,price_int)
     @name_string = name_string
+    @price_int = price_int
   end
 end
