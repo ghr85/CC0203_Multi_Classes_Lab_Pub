@@ -2,9 +2,9 @@
 
 # All Day Lab - Pub
 
-# Drinks Class
+# Drink Class
 
-class Drinks
+class Drink
   attr_reader :name_string, :price_int
 
   def initialize(name_string,price_int)

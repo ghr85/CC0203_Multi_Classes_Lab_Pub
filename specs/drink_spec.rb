@@ -6,14 +6,14 @@
 
 require ('minitest/autorun')
 require ('minitest/rg')
-require_relative ('../drinks.rb')
+require_relative ('../drink.rb')
 
 
-class TestDrinks < MiniTest::Test
+class TestDrink < MiniTest::Test
 
   def setup
-    @drink_1 = Drinks.new("G&T",2)
-    @drink_2 = Drinks.new("Whisky",3)
+    @drink_1 = Drink.new("G&T",2)
+    @drink_2 = Drink.new("Whisky",3)
   end
 
   def test_get_drink_name
@@ -22,5 +22,5 @@ class TestDrinks < MiniTest::Test
   def test_get_drink_price
     assert_equal(3, @drink_2.price_int)
   end
-  
+
 end
