@@ -14,17 +14,28 @@ class Customer
     if @age_int <= 18
       return "You're not old enough! GET OUT!"
     else
-      if @drunkenness_level_int <= 100
-        pub.has_drink(drink_object)
-        @wallet_int -= drink_object.price_int
-        @drunkenness_level_int += drink_object.alcohol_level_int
+      if @wallet_int < drink_object.price_int
+        return "Get a job you bum."
       else
-        return "No more drinks for you, you drunken bum!"
+        if @drunkenness_level_int <= 100
+          pub.has_drink(drink_object)
+          @wallet_int -= drink_object.price_int
+          @drunkenness_level_int += drink_object.alcohol_level_int
+        else
+          return "No more drinks for you, you drunken bum!"
+        end
       end
     end
   end
 
-
+  def buy_food(pub, food_object)
+    if @wallet_int > food_object.price_int
+      @wallet_int -= food_object.price_int
+      return
+    else
+      return "Pot noodles for you pal."
+    end
+  end
 
 
 end

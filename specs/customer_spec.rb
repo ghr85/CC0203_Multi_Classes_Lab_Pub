@@ -21,6 +21,7 @@ class TestCustomer < MiniTest::Test
     @drink_3 = Drink.new("Whisky", 3, 40)
     @customer_1 = Customer.new("Sandy", 50, 25, 0)
     @customer_2 = Customer.new("Sian", 40, 17, 0)
+    @customer_3 = Customer.new("Gordon", 1,33,0)
     @pub = Pub.new("Beer&Byte", 100, [@drink_1, @drink_2, @drink_3],[@food_1,@food_2])
   end
 
@@ -55,6 +56,10 @@ class TestCustomer < MiniTest::Test
 
   def test_buy_food__has_money
     @customer_1.buy_food(@pub, @food_1)
+    assert_equal(44, @customer_1.wallet_int)
   end
+  def test_buy_food__no_money
 
+    assert_equal("Pot noodles for you pal.", @customer_3.buy_food(@pub, @food_1))
+  end
 end
