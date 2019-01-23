@@ -29,9 +29,17 @@ class TestPub < MiniTest::Test
     assert_equal(100, @pub.till_int)
   end
 
+  def test_has_drink
+    assert_equal(true, @pub.has_drink(@drink_1))
+  end
+
+  # def test_get_drink_price__pub
+  #   assert_equal(3, @pub.has(@drink_3))
+  # end
+
   def test_buy_drink__pub_till
-    @customer_1.buy_drink(@pub)
-    assert_equal(103, @pub.till_int)
+    @customer_1.buy_drink(@pub,@drink_3)
+    assert_equal(103, @pub.sell_drink(@drink_3))
   end
 
 

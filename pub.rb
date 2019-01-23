@@ -8,9 +8,14 @@ class Pub
     @drinks_array = drinks_array
   end
 
-  def sell_drink
-    @till_int += @drinks_array.last.price_int
-    return @drinks_array.pop
+  def has_drink(drink_object)
+    return @drinks_array.include?(drink_object)
+  end
+
+
+  def sell_drink(drink_object)
+    @till_int += drink_object.price_int
+    return @till_int
   end
 
 

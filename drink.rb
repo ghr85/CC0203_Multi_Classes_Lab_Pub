@@ -5,6 +5,7 @@
 # Drink Class
 
 class Drink
+  
   attr_reader :name_string, :price_int
 
   def initialize(name_string,price_int)

@@ -16,8 +16,8 @@ class TestCustomer < MiniTest::Test
     @drink_1 = Drink.new("Beer", 2)
     @drink_2 = Drink.new("G&T", 2)
     @drink_3 = Drink.new("Whisky", 3)
-    @customer_1 = Customer.new("Sandy", 50)
-    @customer_2 = Customer.new("Sian", 40)
+    @customer_1 = Customer.new("Sandy", 50, 25)
+    @customer_2 = Customer.new("Sian", 40, 17)
     @pub = Pub.new("Beer&Byte", 100, [@drink_1, @drink_2, @drink_3])
   end
 
@@ -29,17 +29,9 @@ class TestCustomer < MiniTest::Test
     assert_equal(40, @customer_2.wallet_int)
   end
 
-  def test_count_drink
-    assert_equal(0, @customer_2.count_drink)
-  end
 
-  def test_buy_drink__customer_drink
+  def test_buy_drink__customer_wallet
     @customer_1.buy_drink(@pub)
-    assert_equal(1,@customer_1.count_drink)
+    assert_equal(47, @customer_1.wallet_int)
   end
-
-def test_buy_drink__customer_wallet
-  @customer_1.buy_drink(@pub)
-  assert_equal(47, @customer_1.wallet_int)
-end
 end
