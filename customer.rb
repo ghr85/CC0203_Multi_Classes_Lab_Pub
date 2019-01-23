@@ -31,6 +31,7 @@ class Customer
   def buy_food(pub, food_object)
     if @wallet_int > food_object.price_int
       @wallet_int -= food_object.price_int
+      @drunkenness_level_int -= food_object.rejuvination_level_int
       return
     else
       return "Pot noodles for you pal."

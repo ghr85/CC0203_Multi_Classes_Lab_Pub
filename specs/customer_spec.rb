@@ -59,7 +59,11 @@ class TestCustomer < MiniTest::Test
     assert_equal(44, @customer_1.wallet_int)
   end
   def test_buy_food__no_money
-
     assert_equal("Pot noodles for you pal.", @customer_3.buy_food(@pub, @food_1))
+  end
+  def test_buy_food__rejuvination
+    @customer_1.buy_drink(@pub, @drink_3)
+    @customer_1.buy_food(@pub, @food_1)
+    assert_equal(10, @customer_1.drunkenness_level_int)
   end
 end
