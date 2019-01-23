@@ -9,6 +9,7 @@ class Pub
   end
 
   def sell_drink
+    @till_int += @drinks_array.last.price_int
     return @drinks_array.pop
   end
 

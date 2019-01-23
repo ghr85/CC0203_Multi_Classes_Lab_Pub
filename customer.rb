@@ -13,6 +13,11 @@ class Customer
   end
 
   def buy_drink(pub)
+
     @drinks_array << pub.sell_drink
+    @wallet_int -= @drinks_array.last.price_int
+
   end
+
+
 end
