@@ -9,16 +9,19 @@ require ('minitest/rg')
 require_relative ('../pub.rb')
 require_relative ('../drink')
 require_relative ('../customer')
+require_relative ('../food.rb')
 
 class TestPub < MiniTest::Test
 
   def setup
-    @drink_1 = Drink.new("Beer", 2)
-    @drink_2 = Drink.new("G&T", 2)
-    @drink_3 = Drink.new("Whisky", 3)
-    @customer_1 = Customer.new("Sandy", 50, 25)
-    @customer_2 = Customer.new("Sian", 40, 17)
-    @pub = Pub.new("Beer&Byte", 100, [@drink_1, @drink_2, @drink_3])
+    @food_1 = Food.new("Burger",6,30)
+    @food_2 = Food.new("Chicken Wings",4,20)
+    @drink_1 = Drink.new("Beer", 2,10)
+    @drink_2 = Drink.new("G&T", 2,30)
+    @drink_3 = Drink.new("Whisky", 3,40)
+    @customer_1 = Customer.new("Sandy", 50, 25,0)
+    @customer_2 = Customer.new("Sian", 40, 17,0)
+    @pub = Pub.new("Beer&Byte", 100, [@drink_1, @drink_2, @drink_3],[@food_1,@food_2])
   end
 
   def test_get_name
@@ -51,7 +54,8 @@ class TestPub < MiniTest::Test
   end
 
   def test_buy_drink__old_enough
-    assert_equal(47, @customer_1.buy_drink(@pub, @drink_3))
+    @customer_1.buy_drink(@pub, @drink_3)
+    assert_equal(47, @customer_1.wallet_int)
   end
 
 end
