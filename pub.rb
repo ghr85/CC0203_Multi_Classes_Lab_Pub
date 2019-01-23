@@ -18,6 +18,13 @@ class Pub
     return @till_int
   end
 
+  def age(customer_object)
+    if customer_object.age_int >= 18
+      return true
+    else false
+  end 
+  end
+
 
 
 end
