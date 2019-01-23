@@ -29,4 +29,6 @@ class TestPub < MiniTest::Test
     assert_equal(100, @pub.till_int)
   end
 
+  
+
 end

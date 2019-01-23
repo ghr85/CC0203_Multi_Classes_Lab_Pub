@@ -8,6 +8,9 @@ class Pub
     @drinks_array = drinks_array
   end
 
+  def sell_drink
+    return @drinks_array.pop
+  end
 
 
 
